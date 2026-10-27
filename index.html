@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Soulaima Bouhlel, software engineering student at ISIMS Sfax: RAG systems, back-end development, a C shoot 'em up you can play, and a walkable Blender 3D room.">
 <meta property="og:title" content="Soulaima Bouhlel · Portfolio">
-<meta property="og:description" content="RAG systems, back-ends and 3D rooms. Open to a 6-month PFE internship from February 2027.">
+<meta property="og:description" content="Software Engineering student. Projects, demos, a playable game and a walkable 3D room.">
 <meta property="og:image" content="assets/room-iso.jpg">
 <title>Soulaima Bouhlel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -223,6 +223,90 @@ kbd{font-family:var(--mono);font-size:.78rem;padding:3px 8px;border-radius:6px;b
 @media (max-width:700px){.clist{grid-template-columns:1fr}}
 footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
 
+
+/* hero quote */
+.hero h1 span{font-size:.5em;font-weight:600;letter-spacing:-.01em;margin-top:.35em}
+.quote{margin:22px 0 0;max-width:40ch}
+.quote p{font-family:var(--display);font-size:var(--step-1);font-weight:600;line-height:1.35}
+.quote footer{margin-top:8px;color:var(--muted);font-size:.92rem}
+.quote cite{font-style:italic}
+.quote a{color:var(--neon);text-underline-offset:3px}
+.hero .lede{font-size:var(--step-0);color:var(--muted);margin-top:14px;max-width:44ch}
+
+/* nav: current section */
+.nav a.l{position:relative;padding-block:4px;transition:color .2s}
+.nav a.l::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--neon);transform:scaleX(0);transition:transform .25s}
+.nav a.l.active{color:var(--fg);font-weight:600}
+.nav a.l.active::after{transform:scaleX(1)}
+
+/* collapsible projects */
+.plist{display:grid;gap:12px}
+.proj{border:1px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden}
+.proj[open]{box-shadow:0 18px 50px -36px color-mix(in oklab,var(--neon) 60%,transparent)}
+.proj>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding:20px clamp(16px,2.5vw,26px)}
+.proj>summary::-webkit-details-marker{display:none}
+.proj>summary:hover h3{color:var(--neon)}
+.ps-main{min-width:0;flex:1 1 380px}
+.ps-main h3{font-size:var(--step-1);font-weight:700;margin-top:4px;transition:color .2s}
+.ps-main p{color:var(--muted);font-size:.95rem;margin-top:4px}
+.ps-side{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chev{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;margin-left:6px;flex:none}
+.chev::before{content:"";width:8px;height:8px;border-right:2px solid var(--fg);border-bottom:2px solid var(--fg);transform:translateY(-2px) rotate(45deg);transition:transform .25s}
+.proj[open] .chev::before{transform:translateY(2px) rotate(-135deg)}
+.pbody{padding:0 clamp(16px,2.5vw,26px) clamp(18px,2.5vw,26px);border-top:1px solid var(--line);padding-top:clamp(16px,2.5vw,24px);display:grid;gap:18px}
+.pbody .feature{border:0;background:none;padding:0;margin:0}
+.pbody>*,.proof>*,.feature>*,.proof-grid>*{min-width:0}
+.pbody .game{margin-top:0}
+.pbody .play{margin-top:0;background:var(--bg)}
+.pdesc{max-width:75ch;color:var(--fg)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.stats div{background:var(--bg);padding:12px 14px}
+.stats b{display:block;font-family:var(--display);font-size:1.3rem;font-variant-numeric:tabular-nums}
+.stats span{color:var(--muted);font-size:.82rem}
+@media (max-width:700px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* proof of work */
+.proof{display:grid;gap:16px;padding-top:6px}
+.proof-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.proof-head h4{font-family:var(--display);font-size:1.15rem;margin:0}
+.kg-fig{margin:0;border:1px solid var(--line);border-radius:14px;background:var(--bg);padding:14px}
+.kg-scroll{overflow-x:auto}
+#kg{display:block;width:100%;min-width:560px;height:auto}
+#kg .edge{fill:none;stroke:var(--muted);stroke-opacity:.35;stroke-width:1.4;transition:stroke-opacity .2s,stroke .2s}
+#kg .edge.hi{stroke:var(--neon);stroke-opacity:1;stroke-width:2.2}
+#kg .edge.dim{stroke-opacity:.08}
+#kg text{font-family:var(--mono);font-size:12px;fill:var(--fg)}
+#kg .node{cursor:pointer}
+#kg .colhead{fill:var(--muted);font-size:11px;letter-spacing:.08em}
+.kg-fig figcaption{margin-top:10px;color:var(--muted);line-height:1.5}
+.proof-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.proof-grid .label{display:block;margin-bottom:6px}
+.code{margin:0;padding:14px;border-radius:12px;background:var(--sunk);border:1px solid var(--line);font-family:var(--mono);font-size:.76rem;line-height:1.55;overflow-x:auto;white-space:pre}
+.term .ok{color:var(--leaf);font-weight:600}
+.term .dim{color:var(--muted)}
+@media (max-width:820px){.proof-grid{grid-template-columns:1fr}}
+
+/* slide galleries */
+.gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.shot{padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg);cursor:zoom-in;text-align:left;color:var(--fg);font:inherit;display:flex;flex-direction:column}
+.shot img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.shot span{font-size:.76rem;padding:7px 9px;color:var(--muted);line-height:1.35}
+.shot:hover{border-color:var(--neon)}
+@media (max-width:900px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.lb{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);width:100%}
+.lb::backdrop{background:rgba(12,8,16,.82)}
+.lb figure{margin:0;display:grid;gap:10px}
+.lb img{width:100%;border-radius:12px;background:#fff}
+.lb figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#f4ecf3;font-size:.92rem}
+.lb button{padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:rgba(22,17,27,.7);color:#f4ecf3;font:600 .9rem var(--body);cursor:pointer}
+
+/* ongoing */
+.ongoing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ocard{border:1.5px dashed var(--line);border-radius:16px;padding:22px;display:grid;gap:6px;min-height:150px;align-content:start}
+.ocard h3{font-size:1.15rem;font-weight:700}
+.ocard p{color:var(--muted);font-size:.92rem}
+@media (max-width:820px){.ongoing{grid-template-columns:1fr}.ocard{min-height:0}}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.btn:hover{transform:none}}
 </style>
 
@@ -235,6 +319,7 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
       <li><a class="l" href="#experience">Experience</a></li>
       <li><a class="l" href="#projects">Projects</a></li>
       <li><a class="l" href="#room">3D room</a></li>
+      <li><a class="l" href="#ongoing">Ongoing</a></li>
       <li><a class="l" href="#leadership">AIESEC</a></li>
       <li><a class="l" href="#skills">Skills</a></li>
       <li><a class="l" href="#contact">Contact</a></li>
@@ -246,9 +331,13 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <p class="label">Software engineering · ISIMS Sfax · Class of 2027</p>
-        <h1 style="margin-top:14px">Soulaima Bouhlel<span>builds RAG systems, back-ends and 3D rooms.</span></h1>
-        <p class="lede">I write the retrieval pipeline that reads Tunisian banking regulation, the Laravel API behind a creator marketplace, and the Blender scene you can walk through further down this page.</p>
+        <p class="label">ISIMS Sfax · Class of 2027</p>
+        <h1 style="margin-top:14px">Soulaima Bouhlel<span>Software Engineering student</span></h1>
+        <blockquote class="quote">
+          <p>“It's the possibility of having a dream come true that makes life interesting.”</p>
+          <footer>— <cite><a href="https://www.google.com/search?kgmid=%2Fm%2F04g4gp&amp;q=The+Alchemist" target="_blank" rel="noopener">The Alchemist</a></cite>, Paulo Coelho</footer>
+        </blockquote>
+        <p class="lede">I love art, music and experiencing the world. As long as I breathe, I want to keep experiencing and learning.</p>
         <div class="status"><i aria-hidden="true"></i>Open to a 6-month PFE internship from February 2027</div>
         <div class="cta">
           <a class="btn primary" href="#room">Walk through my 3D room</a>
@@ -324,13 +413,18 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
 </section>
 
 <section id="projects">
-  <div class="sec-head"><h2>Projects</h2><span class="label">Academic &amp; personal</span></div>
+  <div class="sec-head"><h2>Projects</h2><span class="label">Tap a project to open it</span></div>
+  <div class="plist">
 
-  <article class="feature">
+  <details class="proj" id="p-rag" open>
+    <summary>
+      <div class="ps-main"><span class="label">BIAT internship · 2026</span><h3>Graph-enhanced RAG for BCT regulation</h3><p>A local assistant for Tunisian central-bank circulars in French and Arabic.</p></div>
+      <div class="ps-side"><span class="tag">Python</span><span class="tag">Qdrant</span><span class="tag">Neo4j</span><span class="tag">Ollama</span><span class="chev" aria-hidden="true"></span></div>
+    </summary>
+    <div class="pbody">
+      <article class="feature">
     <div>
-      <span class="label">BIAT · 2026</span>
-      <h3 style="margin-top:8px">Graph-enhanced RAG for BCT regulation</h3>
-      <p>A fully local assistant that answers questions about Tunisian central-bank circulars in French and Arabic, and says so when the documents don't contain the answer.</p>
+      <p style="margin-top:0">A fully local assistant that answers questions about Tunisian central-bank circulars in French and Arabic, and says so when the documents don't contain the answer.</p>
       <div class="pipe" aria-label="Pipeline">
         <span>PDF + OCR</span><em>→</em><span>Docling</span><em>→</em><span>token-aware chunks</span><em>→</em><span>e5 embeddings · 768d</span><em>→</em><span>Qdrant + Neo4j</span><em>→</em><span>Ollama</span>
       </div>
@@ -348,35 +442,108 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
       <p class="mono" style="color:var(--muted)">Evaluated on a 7-question test set.</p>
     </div>
   </article>
+      <div class="proof">
+        <div class="proof-head"><h4>From the repository</h4><a class="btn" href="https://github.com/soulaimaBouhlel/rag-bct" target="_blank" rel="noopener">View rag-bct on GitHub ↗</a></div>
+        <figure class="kg-fig">
+          <div class="kg-scroll"><svg id="kg" role="img" aria-label="Reference graph: 9 BCT documents from 2026 linked to the 17 laws and earlier circulars they cite"></svg></div>
+          <figcaption class="mono">Reference graph extracted by the pipeline from <code>data/chunks.json</code>: 9 BCT documents from 2026 (left) and the 17 laws and earlier circulars they cite (right), 26 links. Hover or tap a document to trace its references.</figcaption>
+        </figure>
+        <div class="proof-grid">
+          <div>
+            <span class="label">One extracted chunk · Circular 2026-3, Article 1</span>
+<pre class="code"><code>{
+  "chunk_id": "Cir_2026_03_fr-article-1",
+  "circular_ref": "2026-03",
+  "chunk_type": "article",
+  "article_number": 1,
+  "token_count": 180,
+  "parent_chunk": "Cir_2026_03_fr-article-1",
+  "text": "Article premier - La distribution des
+    dividendes au titre de l'exercice 2025 …
+    dans la limite de 35% du bénéfice …
+    respectivement de 2,5% et 3,5% au moins."
+}</code></pre>
+          </div>
+          <div>
+            <span class="label">Unit tests · retrieval &amp; extraction</span>
+<pre class="code term"><code>$ pytest tests/unit -m "not slow"
+<b class="ok">PASSED</b> test_parent_child (5 tests)
+  split chunk → parent id · group hits by parent
+  sort children · merge children in order
+<b class="ok">PASSED</b> test_reference_extractor (7 tests)
+  laws · old laws · circulars · articles
+  all references · annex numbers
+<b class="ok">PASSED</b> test_no_documents_returns_fallback
+<span class="dim">13 passed · generation tests need a local Ollama model</span></code></pre>
+          </div>
+        </div>
+        <div class="stats">
+          <div><b>9</b><span>regulatory PDFs</span></div>
+          <div><b>126</b><span>chunks</span></div>
+          <div><b>73</b><span>articles &amp; annexes</span></div>
+          <div><b>26</b><span>citation links</span></div>
+        </div>
+      </div>
+    </div>
+  </details>
 
-  <div class="cards">
-    <article class="card">
-      <span class="label yr">ISIMS · 2025</span>
-      <h3>Interactive Incident Reporting Platform</h3>
-      <p>Six Spring Boot microservices with Angular and MongoDB for municipal technical interventions. Geospatial 2dsphere search finds the nearest technician, a multicriteria algorithm assigns them, and Gemini scores incident priority.</p>
+  <details class="proj" id="p-city">
+    <summary>
+      <div class="ps-main"><span class="label">ISIMS · 2025</span><h3>Smart City: Incident Reporting Platform</h3><p>Microservices that route municipal incidents to the nearest qualified technician.</p></div>
+      <div class="ps-side"><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">MongoDB</span><span class="chev" aria-hidden="true"></span></div>
+    </summary>
+    <div class="pbody">
+      <p class="pdesc">Six Spring Boot microservices (users, interventions, scheduler, equipment, notifications, map) with an Angular front end and MongoDB, sized for 10,000 concurrent users. A 2dsphere geospatial index finds nearby technicians and equipment, a multicriteria algorithm assigns the best technician (distance, skills, max 5 open interventions), and Gemini reads each incident description to set its priority and required skills. Deployed behind Nginx with HTTPS.</p>
       <div class="tags"><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">MongoDB</span><span class="tag">Gemini</span><span class="tag">Nginx</span></div>
-      <div class="nums"><div><b>98.7%</b><span>E2E pass rate</span></div><div><b>−79%</b><span>docs scanned</span></div><div><b>85%+</b><span>unit coverage</span></div></div>
-    </article>
-    <article class="card">
-      <span class="label yr">ISIMS · 2026</span>
-      <h3>Road Accident BI</h3>
-      <p>Star-schema data warehouse over the French BAAC open dataset (2020–2024). KNIME ETL into PostgreSQL, a weighted severity index, and Grafana dashboards for hotspots and risk profiles.</p>
-      <div class="tags"><span class="tag">KNIME</span><span class="tag">PostgreSQL</span><span class="tag">Grafana</span></div>
-      <div class="nums"><div><b>300k+</b><span>records</span></div><div><b>1 + 5</b><span>fact + dims</span></div><div><b>8</b><span>KPIs</span></div></div>
-    </article>
-    <article class="card">
-      <span class="label yr">ISIMS · Mar – Apr 2025</span>
-      <h3>JEE Online Shop</h3>
-      <p>Full-stack e-commerce app in Java EE (Servlets, JSP, MVC): authentication, sessions, catalog, cart and orders. MySQL over JDBC with DAO and prepared statements, deployed on Tomcat.</p>
-      <div class="tags"><span class="tag">Java EE</span><span class="tag">JSP</span><span class="tag">MySQL</span><span class="tag">Tomcat</span></div>
-      <div class="nums"><div><b>DAO</b><span>pattern</span></div><div><b>REST</b><span>APIs</span></div><div><b>Git</b><span>versioned</span></div></div>
-    </article>
-  </div>
+      <div class="stats">
+        <div><b>98.7%</b><span>E2E pass rate · 20 scenarios</span></div>
+        <div><b>−79%</b><span>documents scanned</span></div>
+        <div><b>85%+</b><span>unit-test coverage</span></div>
+        <div><b>6</b><span>microservices</span></div>
+      </div>
+      <div class="cta"><a class="btn" href="https://gitlab.com/soulaimabouhlel-group/smart-city-front" target="_blank" rel="noopener">Front-end on GitLab ↗</a></div>
+    </div>
+  </details>
 
-  <article class="game" id="game">
+  <details class="proj" id="p-bi">
+    <summary>
+      <div class="ps-main"><span class="label">ISIMS · 2025 – 2026 · team of 3</span><h3>Road Accident Data Warehouse</h3><p>KNIME ETL, a PostgreSQL star schema and live Grafana dashboards over French accident data.</p></div>
+      <div class="ps-side"><span class="tag">KNIME</span><span class="tag">PostgreSQL</span><span class="tag">Grafana</span><span class="chev" aria-hidden="true"></span></div>
+    </summary>
+    <div class="pbody">
+      <p class="pdesc">Historical BAAC data (2020–2024, CSV / Excel / JSON from data.gouv.fr) feeds a star schema with one fact table and five dimensions. A Python script also pulls the live XML feed from Bison Futé so new incidents reach the dashboard. KNIME cleans, enriches (weekend and holiday flags, age groups, speed limits) and loads everything into PostgreSQL, and Grafana answers 13 business questions such as fatality rate by road-user category or vehicle type.</p>
+      <div class="stats">
+        <div><b>300k+</b><span>accident records</span></div>
+        <div><b>1 + 5</b><span>fact + dimension tables</span></div>
+        <div><b>13</b><span>business questions</span></div>
+        <div><b>8</b><span>KPIs</span></div>
+      </div>
+      <div class="gallery"><button type="button" class="shot" data-full="assets/demos/bi7.webp" data-cap="Architecture: sources → KNIME → PostgreSQL → Grafana"><img src="assets/demos/bi7.webp" alt="Architecture: sources → KNIME → PostgreSQL → Grafana" loading="lazy"><span>Architecture: sources → KNIME → PostgreSQL → Grafana</span></button><button type="button" class="shot" data-full="assets/demos/bi18.webp" data-cap="KNIME transformation and loading workflow"><img src="assets/demos/bi18.webp" alt="KNIME transformation and loading workflow" loading="lazy"><span>KNIME transformation and loading workflow</span></button><button type="button" class="shot" data-full="assets/demos/bi30.webp" data-cap="Grafana: accidents per year"><img src="assets/demos/bi30.webp" alt="Grafana: accidents per year" loading="lazy"><span>Grafana: accidents per year</span></button><button type="button" class="shot" data-full="assets/demos/bi33.webp" data-cap="Grafana: fatality rate by road-user category"><img src="assets/demos/bi33.webp" alt="Grafana: fatality rate by road-user category" loading="lazy"><span>Grafana: fatality rate by road-user category</span></button><button type="button" class="shot" data-full="assets/demos/bi34.webp" data-cap="Grafana: accident share by vehicle type"><img src="assets/demos/bi34.webp" alt="Grafana: accident share by vehicle type" loading="lazy"><span>Grafana: accident share by vehicle type</span></button></div>
+    </div>
+  </details>
+
+  <details class="proj" id="p-jee">
+    <summary>
+      <div class="ps-main"><span class="label">ISIMS · Mar – Apr 2025</span><h3>VOGUE: JEE Online Shop</h3><p>A full-stack fashion store with customer accounts, cart and an admin back office.</p></div>
+      <div class="ps-side"><span class="tag">Java EE</span><span class="tag">JSP</span><span class="tag">MySQL</span><span class="chev" aria-hidden="true"></span></div>
+    </summary>
+    <div class="pbody">
+      <p class="pdesc">Servlets and JSP following MVC: authentication, sessions, product catalog, shopping cart and orders. The admin section adds, edits and lists products. MySQL is accessed over JDBC through DAOs with prepared statements against SQL injection, and the app runs on Apache Tomcat.</p>
+      <div class="tags"><span class="tag">Java EE</span><span class="tag">Servlets</span><span class="tag">JSP</span><span class="tag">MySQL</span><span class="tag">JDBC · DAO</span><span class="tag">Tomcat</span></div>
+      <div class="gallery"><button type="button" class="shot" data-full="assets/demos/jee4.webp" data-cap="Home page catalog"><img src="assets/demos/jee4.webp" alt="Home page catalog" loading="lazy"><span>Home page catalog</span></button><button type="button" class="shot" data-full="assets/demos/jee6.webp" data-cap="Sign in and registration"><img src="assets/demos/jee6.webp" alt="Sign in and registration" loading="lazy"><span>Sign in and registration</span></button><button type="button" class="shot" data-full="assets/demos/jee8.webp" data-cap="Admin dashboard"><img src="assets/demos/jee8.webp" alt="Admin dashboard" loading="lazy"><span>Admin dashboard</span></button><button type="button" class="shot" data-full="assets/demos/jee11.webp" data-cap="Admin: all products"><img src="assets/demos/jee11.webp" alt="Admin: all products" loading="lazy"><span>Admin: all products</span></button><button type="button" class="shot" data-full="assets/demos/jee13.webp" data-cap="Cart page"><img src="assets/demos/jee13.webp" alt="Cart page" loading="lazy"><span>Cart page</span></button></div>
+    </div>
+  </details>
+
+  <details class="proj" id="p-game">
+    <summary>
+      <div class="ps-main"><span class="label">Projet de programmation C · April 2023</span><h3>Shoot ’em up</h3><p>My first game, in C with the MLV library. Playable right here.</p></div>
+      <div class="ps-side"><span class="tag">C</span><span class="tag">MLV</span><span class="tag">Playable</span><span class="chev" aria-hidden="true"></span></div>
+    </summary>
+    <div class="pbody">
+      <article class="game" id="game">
     <div class="gcopy">
       <span class="label">Projet de programmation C · April 2023</span>
-      <h3 style="font-size:var(--step-2);font-weight:800;margin-top:8px">Shoot ’em up</h3>
+      <h3 style="font-size:var(--step-1);font-weight:700;margin-top:8px">How it plays</h3>
       <p>My first game, written in C with the MLV graphics library. Enemy ships drop from a random column; you slide along the bottom and fire twin shots. Each kill scores a point, each ship that reaches you or slips past costs a heart, and the fifth miss brings up the game-over screen with your score.</p>
       <div class="keys">
         <span><kbd>←</kbd> <kbd>→</kbd></span><span>Move the ship</span>
@@ -421,6 +588,10 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
       <button type="button" data-k="right" aria-label="Move right">▶</button>
       <button type="button" data-k="replay" aria-label="Replay">Replay</button>
     </div>
+  </div>
+    </div>
+  </details>
+
   </div>
 </section>
 </div>
@@ -475,6 +646,15 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
 </div>
 
 <div class="wrap">
+<section id="ongoing">
+  <div class="sec-head"><h2>Ongoing projects</h2><span class="label">In progress</span></div>
+  <div class="ongoing">
+    <article class="ocard"><span class="label">IoT</span><h3>IoT project</h3><p>Details coming soon.</p></article>
+    <article class="ocard"><span class="label">Blockchain</span><h3>Blockchain project</h3><p>Details coming soon.</p></article>
+    <article class="ocard"><span class="label">Front-end</span><h3>Front-end project</h3><p>Details coming soon.</p></article>
+  </div>
+</section>
+
 <section id="leadership">
   <div class="sec-head"><h2>AIESEC in Sfax</h2><span class="label">Feb 2023 – Dec 2024</span></div>
   <div class="lead">
@@ -538,6 +718,100 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
   </div>
 </footer>
 <div class="wrap"><footer>© 2026 Soulaima Bouhlel · Sfax, Tunisia</footer></div>
+
+<dialog class="lb" id="lb" aria-label="Slide preview">
+  <figure><img id="lbImg" alt=""><figcaption><span id="lbCap"></span><button type="button" id="lbClose">Close</button></figcaption></figure>
+</dialog>
+
+<script>
+// ---- nav: highlight the section on screen ----
+(()=>{
+  const links=[...document.querySelectorAll('.nav a.l')];
+  const byId=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  const secs=[...byId.keys()].map(id=>document.getElementById(id)).filter(Boolean);
+  const ul=document.querySelector('.nav ul');
+  let current=null;
+  function setActive(id){
+    if(id===current) return; current=id;
+    links.forEach(a=>{const on=a.getAttribute('href')==='#'+id; a.classList.toggle('active',on); if(on) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');});
+    const a=byId.get(id); if(a&&ul.scrollWidth>ul.clientWidth){ ul.scrollTo({left:a.offsetLeft-ul.clientWidth/2+a.offsetWidth/2,behavior:'smooth'}); }
+  }
+  function update(){
+    const line=innerHeight*0.35; let best=null;
+    for(const s of secs){ const r=s.getBoundingClientRect(); if(r.top<=line&&r.bottom>line){ best=s.id; } }
+    if(!best && innerHeight+scrollY>=document.documentElement.scrollHeight-4) best='contact';
+    if(best) setActive(best); else { current=null; links.forEach(a=>{a.classList.remove('active');a.removeAttribute('aria-current')}); }
+  }
+  addEventListener('scroll',update,{passive:true}); addEventListener('resize',update); update();
+})();
+
+// ---- open a collapsed project when a link points inside it ----
+function revealTarget(id){
+  const t=id&&document.getElementById(id); if(!t) return;
+  const d=t.closest('details'); if(d&&!d.open) d.open=true;
+}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#"]'); if(!a) return;
+  const id=a.getAttribute('href').slice(1); revealTarget(id);
+});
+if(location.hash) revealTarget(location.hash.slice(1));
+
+// ---- slide viewer ----
+(()=>{
+  const dlg=document.getElementById('lb'), img=document.getElementById('lbImg'), cap=document.getElementById('lbCap');
+  document.querySelectorAll('.shot').forEach(b=>b.addEventListener('click',()=>{
+    img.src=b.dataset.full; img.alt=b.dataset.cap; cap.textContent=b.dataset.cap;
+    if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+  }));
+  document.getElementById('lbClose').addEventListener('click',()=>dlg.close());
+  dlg.addEventListener('click',e=>{ if(e.target===dlg) dlg.close(); });
+})();
+
+// ---- RAG reference graph (data from rag-bct/data/chunks.json) ----
+(()=>{
+  const svg=document.getElementById('kg'); if(!svg) return;
+  const docs=[['Cir_2026_01','Circular 2026-1 · FR'],['Cir_2026_02','Circular 2026-2 · FR'],['Cir_2026_03','Circular 2026-3 · FR'],['Cir_2026_04','Circular 2026-4 · FR'],['Cir_2026_05','Circular 2026-5 · FR'],['Cir_2026_06','Circular 2026-6 · AR'],['Note_2026_43','Note 2026-43 · FR'],['Note_2026_132','Note 2026-132 · FR'],['Note_2026_166','Note 2026-166 · AR']];
+  const tgts=['Loi 1976-18','Circ. 1986-42','Circ. 1991-22','Loi 2011-87','Loi 2011-88','Loi 2011-98','Loi 2014-54','Loi 2015-26','Loi 2016-35','Loi 2016-48','Circ. 2018-06','Loi 2018-52','Circ. 2019-07','Circ. 2021-05','Circ. 2025-09','Circ. 2025-13','Loi 2026-05'];
+  const E={Cir_2026_01:['Circ. 1986-42','Circ. 1991-22','Loi 2016-35','Loi 2016-48'],
+    Cir_2026_02:['Circ. 2019-07','Loi 1976-18','Loi 2011-87','Loi 2011-88','Loi 2014-54','Loi 2015-26','Loi 2016-35','Loi 2016-48','Loi 2018-52'],
+    Cir_2026_03:['Circ. 2018-06','Circ. 2021-05','Loi 2016-35','Loi 2016-48'],
+    Cir_2026_04:['Circ. 2025-13','Loi 2011-98','Loi 2016-35','Loi 2016-48'],
+    Cir_2026_05:['Circ. 2025-09','Loi 2016-35','Loi 2016-48'],
+    Cir_2026_06:['Loi 2026-05'], Note_2026_43:['Loi 2016-35']};
+  const NS='http://www.w3.org/2000/svg', W=760, top=34, rowT=24, H=top+tgts.length*rowT+8;
+  const rowD=(tgts.length*rowT-rowT)/(docs.length-1);
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const el=(n,a,p=svg)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+  const xL=168, xR=W-180;
+  const yD=i=>top+8+i*rowD, yT=i=>top+8+i*rowT;
+  el('text',{x:xL,y:16,'text-anchor':'end',class:'colhead'}).textContent='BCT DOCUMENTS · 2026';
+  el('text',{x:xR,y:16,class:'colhead'}).textContent='CITED LAWS · CIRCULARS';
+  const g=el('g',{}); const edges=[];
+  docs.forEach(([id],i)=>(E[id]||[]).forEach(t=>{
+    const j=tgts.indexOf(t), y1=yD(i), y2=yT(j), mx=(xL+xR)/2;
+    const path=el('path',{d:`M${xL+8} ${y1} C${mx} ${y1}, ${mx} ${y2}, ${xR-8} ${y2}`,class:'edge'},g);
+    edges.push({path,doc:id,t});
+  }));
+  const counts={}; edges.forEach(e=>counts[e.t]=(counts[e.t]||0)+1);
+  function hi(doc,t){ edges.forEach(e=>{const on=(doc&&e.doc===doc)||(t&&e.t===t); e.path.classList.toggle('hi',on); e.path.classList.toggle('dim',!!(doc||t)&&!on);}); }
+  docs.forEach(([id,label],i)=>{
+    const n=el('g',{class:'node',tabindex:0,role:'button','aria-label':label+': '+((E[id]||[]).length)+' references'});
+    el('circle',{cx:xL,cy:yD(i),r:6,fill:'var(--neon)'},n);
+    el('text',{x:xL-12,y:yD(i)+4,'text-anchor':'end'},n).textContent=label;
+    ['mouseenter','focus'].forEach(ev=>n.addEventListener(ev,()=>hi(id)));
+    ['mouseleave','blur'].forEach(ev=>n.addEventListener(ev,()=>hi()));
+    n.addEventListener('click',()=>hi(id));
+  });
+  tgts.forEach((t,j)=>{
+    const n=el('g',{class:'node'});
+    const law=t.startsWith('Loi');
+    el('circle',{cx:xR,cy:yT(j),r:3+Math.min(counts[t]||1,6),fill:law?'var(--peach)':'var(--leaf)'},n);
+    el('text',{x:xR+14,y:yT(j)+4},n).textContent=t+(counts[t]>1?`  ×${counts[t]}`:'');
+    ['mouseenter','focus'].forEach(ev=>n.addEventListener(ev,()=>hi(null,t)));
+    ['mouseleave','blur'].forEach(ev=>n.addEventListener(ev,()=>hi()));
+  });
+})();
+</script>
 
 <script>
 // copy buttons
