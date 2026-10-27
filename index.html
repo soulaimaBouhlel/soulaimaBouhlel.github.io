@@ -300,6 +300,20 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
 .lb figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#f4ecf3;font-size:.92rem}
 .lb button{padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:rgba(22,17,27,.7);color:#f4ecf3;font:600 .9rem var(--body);cursor:pointer}
 
+
+.grafana-head{margin-bottom:-8px}
+.grafana{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.grafana .wide{grid-column:span 2}
+.grafana .full{grid-column:1/-1}
+.shot.gf{background:#181b1f;border-color:#2a2e35}
+.shot.gf img{aspect-ratio:auto;height:210px;object-fit:contain;background:#181b1f;padding:8px}
+.grafana .full img{height:150px}
+.shot.gf span{color:#aeb4bd;background:#111317;margin-top:auto}
+@media (max-width:700px){.grafana{grid-template-columns:1fr}.grafana .wide,.grafana .full{grid-column:auto}.shot.gf img,.grafana .full img{height:auto;max-height:240px}}
+.demo-vid{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#f5f5f5;max-width:960px}
+.demo-vid video{width:100%;display:block;aspect-ratio:16/9;background:#f5f5f5}
+.demo-vid figcaption{padding:8px 12px;color:var(--muted);background:var(--bg)}
+
 /* ongoing */
 .ongoing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .ocard{border:1.5px dashed var(--line);border-radius:16px;padding:22px;display:grid;gap:6px;min-height:150px;align-content:start}
@@ -426,7 +440,7 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
     <div>
       <p style="margin-top:0">A fully local assistant that answers questions about Tunisian central-bank circulars in French and Arabic, and says so when the documents don't contain the answer.</p>
       <div class="pipe" aria-label="Pipeline">
-        <span>PDF + OCR</span><em>→</em><span>Docling</span><em>→</em><span>token-aware chunks</span><em>→</em><span>e5 embeddings · 768d</span><em>→</em><span>Qdrant + Neo4j</span><em>→</em><span>Ollama</span>
+        <span>PDF + OCR</span><em>→</em><span>Docling</span><em>→</em><span>token-aware chunks</span><em>→</em><span>e5 embeddings · 768d</span><em>→</em><span>Qdrant + Neo4j</span><em>→</em><span>Ollama</span><em>→</em><span>MCP · Claude Desktop</span>
       </div>
     </div>
     <div class="metrics">
@@ -448,35 +462,6 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
           <div class="kg-scroll"><svg id="kg" role="img" aria-label="Reference graph: 9 BCT documents from 2026 linked to the 17 laws and earlier circulars they cite"></svg></div>
           <figcaption class="mono">Reference graph extracted by the pipeline from <code>data/chunks.json</code>: 9 BCT documents from 2026 (left) and the 17 laws and earlier circulars they cite (right), 26 links. Hover or tap a document to trace its references.</figcaption>
         </figure>
-        <div class="proof-grid">
-          <div>
-            <span class="label">One extracted chunk · Circular 2026-3, Article 1</span>
-<pre class="code"><code>{
-  "chunk_id": "Cir_2026_03_fr-article-1",
-  "circular_ref": "2026-03",
-  "chunk_type": "article",
-  "article_number": 1,
-  "token_count": 180,
-  "parent_chunk": "Cir_2026_03_fr-article-1",
-  "text": "Article premier - La distribution des
-    dividendes au titre de l'exercice 2025 …
-    dans la limite de 35% du bénéfice …
-    respectivement de 2,5% et 3,5% au moins."
-}</code></pre>
-          </div>
-          <div>
-            <span class="label">Unit tests · retrieval &amp; extraction</span>
-<pre class="code term"><code>$ pytest tests/unit -m "not slow"
-<b class="ok">PASSED</b> test_parent_child (5 tests)
-  split chunk → parent id · group hits by parent
-  sort children · merge children in order
-<b class="ok">PASSED</b> test_reference_extractor (7 tests)
-  laws · old laws · circulars · articles
-  all references · annex numbers
-<b class="ok">PASSED</b> test_no_documents_returns_fallback
-<span class="dim">13 passed · generation tests need a local Ollama model</span></code></pre>
-          </div>
-        </div>
         <div class="stats">
           <div><b>9</b><span>regulatory PDFs</span></div>
           <div><b>126</b><span>chunks</span></div>
@@ -501,13 +486,13 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
         <div><b>85%+</b><span>unit-test coverage</span></div>
         <div><b>6</b><span>microservices</span></div>
       </div>
-      <div class="cta"><a class="btn" href="https://gitlab.com/soulaimabouhlel-group/smart-city-front" target="_blank" rel="noopener">Front-end on GitLab ↗</a></div>
+      <div class="cta"><a class="btn" href="https://gitlab.com/soulaimabouhlel-group/smart-city-front" target="_blank" rel="noopener">Open on GitLab ↗</a></div>
     </div>
   </details>
 
   <details class="proj" id="p-bi">
     <summary>
-      <div class="ps-main"><span class="label">ISIMS · 2025 – 2026 · team of 3</span><h3>Road Accident Data Warehouse</h3><p>KNIME ETL, a PostgreSQL star schema and live Grafana dashboards over French accident data.</p></div>
+      <div class="ps-main"><span class="label">ISIMS · 2025 – 2026 · team of 2</span><h3>Road Accident Data Warehouse</h3><p>KNIME ETL, a PostgreSQL star schema and live Grafana dashboards over French accident data.</p></div>
       <div class="ps-side"><span class="tag">KNIME</span><span class="tag">PostgreSQL</span><span class="tag">Grafana</span><span class="chev" aria-hidden="true"></span></div>
     </summary>
     <div class="pbody">
@@ -518,7 +503,7 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
         <div><b>13</b><span>business questions</span></div>
         <div><b>8</b><span>KPIs</span></div>
       </div>
-      <div class="gallery"><button type="button" class="shot" data-full="assets/demos/bi7.webp" data-cap="Architecture: sources → KNIME → PostgreSQL → Grafana"><img src="assets/demos/bi7.webp" alt="Architecture: sources → KNIME → PostgreSQL → Grafana" loading="lazy"><span>Architecture: sources → KNIME → PostgreSQL → Grafana</span></button><button type="button" class="shot" data-full="assets/demos/bi18.webp" data-cap="KNIME transformation and loading workflow"><img src="assets/demos/bi18.webp" alt="KNIME transformation and loading workflow" loading="lazy"><span>KNIME transformation and loading workflow</span></button><button type="button" class="shot" data-full="assets/demos/bi30.webp" data-cap="Grafana: accidents per year"><img src="assets/demos/bi30.webp" alt="Grafana: accidents per year" loading="lazy"><span>Grafana: accidents per year</span></button><button type="button" class="shot" data-full="assets/demos/bi33.webp" data-cap="Grafana: fatality rate by road-user category"><img src="assets/demos/bi33.webp" alt="Grafana: fatality rate by road-user category" loading="lazy"><span>Grafana: fatality rate by road-user category</span></button><button type="button" class="shot" data-full="assets/demos/bi34.webp" data-cap="Grafana: accident share by vehicle type"><img src="assets/demos/bi34.webp" alt="Grafana: accident share by vehicle type" loading="lazy"><span>Grafana: accident share by vehicle type</span></button></div>
+      <div class="grafana-head"><span class="label">Grafana dashboards</span></div><div class="grafana"><button type="button" class="shot gf wide" data-full="assets/demos/grafana-accidents-year.webp" data-cap="Accidents per year, 2020 – 2026"><img src="assets/demos/grafana-accidents-year.webp" alt="Grafana panel: Accidents per year, 2020 – 2026" loading="lazy"><span>Accidents per year, 2020 – 2026</span></button><button type="button" class="shot gf " data-full="assets/demos/grafana-two-wheel-season.webp" data-cap="Two-wheeler accidents by season"><img src="assets/demos/grafana-two-wheel-season.webp" alt="Grafana panel: Two-wheeler accidents by season" loading="lazy"><span>Two-wheeler accidents by season</span></button><button type="button" class="shot gf wide" data-full="assets/demos/grafana-victims-category.webp" data-cap="Victims by road-user category and severity"><img src="assets/demos/grafana-victims-category.webp" alt="Grafana panel: Victims by road-user category and severity" loading="lazy"><span>Victims by road-user category and severity</span></button><button type="button" class="shot gf " data-full="assets/demos/grafana-vehicle-share.webp" data-cap="Accident share by vehicle type"><img src="assets/demos/grafana-vehicle-share.webp" alt="Grafana panel: Accident share by vehicle type" loading="lazy"><span>Accident share by vehicle type</span></button><button type="button" class="shot gf full" data-full="assets/demos/grafana-fatality-gauges.webp" data-cap="Fatality rate (%) by road-user category"><img src="assets/demos/grafana-fatality-gauges.webp" alt="Grafana panel: Fatality rate (%) by road-user category" loading="lazy"><span>Fatality rate (%) by road-user category</span></button></div>
     </div>
   </details>
 
@@ -530,7 +515,7 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
     <div class="pbody">
       <p class="pdesc">Servlets and JSP following MVC: authentication, sessions, product catalog, shopping cart and orders. The admin section adds, edits and lists products. MySQL is accessed over JDBC through DAOs with prepared statements against SQL injection, and the app runs on Apache Tomcat.</p>
       <div class="tags"><span class="tag">Java EE</span><span class="tag">Servlets</span><span class="tag">JSP</span><span class="tag">MySQL</span><span class="tag">JDBC · DAO</span><span class="tag">Tomcat</span></div>
-      <div class="gallery"><button type="button" class="shot" data-full="assets/demos/jee4.webp" data-cap="Home page catalog"><img src="assets/demos/jee4.webp" alt="Home page catalog" loading="lazy"><span>Home page catalog</span></button><button type="button" class="shot" data-full="assets/demos/jee6.webp" data-cap="Sign in and registration"><img src="assets/demos/jee6.webp" alt="Sign in and registration" loading="lazy"><span>Sign in and registration</span></button><button type="button" class="shot" data-full="assets/demos/jee8.webp" data-cap="Admin dashboard"><img src="assets/demos/jee8.webp" alt="Admin dashboard" loading="lazy"><span>Admin dashboard</span></button><button type="button" class="shot" data-full="assets/demos/jee11.webp" data-cap="Admin: all products"><img src="assets/demos/jee11.webp" alt="Admin: all products" loading="lazy"><span>Admin: all products</span></button><button type="button" class="shot" data-full="assets/demos/jee13.webp" data-cap="Cart page"><img src="assets/demos/jee13.webp" alt="Cart page" loading="lazy"><span>Cart page</span></button></div>
+      <figure class="demo-vid"><video src="assets/demos/vogue-demo.mp4" poster="assets/demos/vogue-poster.jpg" controls muted loop playsinline preload="metadata" aria-label="VOGUE shop walkthrough: catalog, sign-in, admin dashboard, adding and editing products, cart"></video><figcaption class="mono">Walkthrough · 32 s · customer side, then the admin back office</figcaption></figure>
     </div>
   </details>
 
