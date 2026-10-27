@@ -475,17 +475,18 @@ footer{padding-block:24px 36px;color:var(--muted);font-size:.85rem}
   <details class="proj" id="p-city">
     <summary>
       <div class="ps-main"><span class="label">ISIMS · 2025</span><h3>Smart City: Incident Reporting Platform</h3><p>Microservices that route municipal incidents to the nearest qualified technician.</p></div>
-      <div class="ps-side"><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">MongoDB</span><span class="chev" aria-hidden="true"></span></div>
+      <div class="ps-side"><span class="tag">Spring Boot</span><span class="tag">React</span><span class="tag">MongoDB</span><span class="chev" aria-hidden="true"></span></div>
     </summary>
     <div class="pbody">
-      <p class="pdesc">Six Spring Boot microservices (users, interventions, scheduler, equipment, notifications, map) with an Angular front end and MongoDB, sized for 10,000 concurrent users. A 2dsphere geospatial index finds nearby technicians and equipment, a multicriteria algorithm assigns the best technician (distance, skills, max 5 open interventions), and Gemini reads each incident description to set its priority and required skills. Deployed behind Nginx with HTTPS.</p>
-      <div class="tags"><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">MongoDB</span><span class="tag">Gemini</span><span class="tag">Nginx</span></div>
+      <p class="pdesc">Six Spring Boot microservices (users, interventions, scheduler, equipment, notifications, map) with a React + TypeScript front end (Leaflet maps) and MongoDB, sized for 10,000 concurrent users. A 2dsphere geospatial index finds nearby technicians and equipment, a multicriteria algorithm assigns the best technician (distance, skills, max 5 open interventions), and Gemini reads each incident description to set its priority and required skills. Deployed behind Nginx with HTTPS.</p>
+      <div class="tags"><span class="tag">Spring Boot</span><span class="tag">React</span><span class="tag">Leaflet</span><span class="tag">MongoDB</span><span class="tag">Gemini</span><span class="tag">Nginx</span></div>
       <div class="stats">
         <div><b>98.7%</b><span>E2E pass rate · 20 scenarios</span></div>
         <div><b>−79%</b><span>documents scanned</span></div>
         <div><b>85%+</b><span>unit-test coverage</span></div>
         <div><b>6</b><span>microservices</span></div>
       </div>
+      <figure class="demo-vid"><video src="assets/demos/smartcity-demo.mp4" poster="assets/demos/smartcity-poster.jpg" controls muted loop playsinline preload="metadata" aria-label="Smart City demo: a citizen reports a broken streetlight from the map, the maintenance admin assigns a technician, and the technician closes the job"></video><figcaption class="mono">Demo · 55 s · citizen reports an issue → maintenance admin assigns → technician closes it. Front end running on sample data; map tiles weren't available in the recording environment.</figcaption></figure>
       <div class="cta"><a class="btn" href="https://gitlab.com/soulaimabouhlel-group/smart-city-front" target="_blank" rel="noopener">Open on GitLab ↗</a></div>
     </div>
   </details>
